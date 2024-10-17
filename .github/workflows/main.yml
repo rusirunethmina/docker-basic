@@ -9,21 +9,25 @@ jobs:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
+    # Checkout the repository code
       - name: Check out the repo
         uses: actions/checkout@v3
       
+      # Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
+      # Create image tags
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: rusiru1998N/testjodejsapp
       
+      # Build and push docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
