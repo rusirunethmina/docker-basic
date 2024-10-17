@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send("Hello Docker World with gihub action");
+    res.send("Hello Docker World with gihub action in development env");
 });
 
 app.listen(3000, () => {
